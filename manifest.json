@@ -1,0 +1,7 @@
+{
+  "name": "Custom Plugin",
+  "id": "909524889600249498",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html"
+}

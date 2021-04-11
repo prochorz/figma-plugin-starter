@@ -1,0 +1,102 @@
+{
+  "name": "figma-plugin-starter",
+  "version": "1.0.0",
+  "description": "Custom plugin",
+  "main": "code.js",
+  "scripts": {
+    "publish-patch": "npm run updete-manifest --patch",
+    "publish-minor": "npm run updete-manifest --minor",
+    "publish-major": "npm run updete-manifest --major",
+    "publish-prod": "npm run publish-major --toproduction",
+    "updete-manifest": "node ./_templates/manifest_updete.js",
+    "cc": "hygen create component",
+    "dev": "webpack --config ./webpack/webpack.dev.js",
+    "dev:apple": "webpack --config ./webpack/webpack.dev.js --applescript",
+    "build": "webpack --config ./webpack/webpack.prod.js",
+    "analyze": "webpack --config ./webpack/webpack.prod.js --analyze",
+    "format": "prettier --write src/**/*.ts{,x}",
+    "lint": "tsc --noEmit && eslint ./src --ext .ts,.tsx",
+    "lint-fix": "tsc --noEmit && eslint --fix ./src --ext .ts,.tsx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prochorz/figma-plugin-starter.git"
+  },
+  "keywords": [
+    "Webpack",
+    "React",
+    "TypeScript"
+  ],
+  "author": "Prochor Simon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prochorz/figma-plugin-starter/issues"
+  },
+  "homepage": "https://github.com/prochorz/figma-plugin-starter#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json}": [
+      "pretty-quick --staged",
+      "eslint ./src"
+    ]
+  },
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.16.1",
+    "@svgr/webpack": "^5.4.0",
+    "@types/classnames": "^2.2.10",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.5",
+    "@types/webpack-env": "^1.15.3",
+    "@typescript-eslint/eslint-plugin": "^4.8.0",
+    "@typescript-eslint/parser": "^4.8.0",
+    "base64-inline-loader": "^1.1.1",
+    "child_process": "^1.0.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "compressing": "^1.5.1",
+    "css-loader": "^2.1.1",
+    "edit-json-file": "^1.4.1",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-import-resolver-webpack": "^0.13.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "html-webpack-inline-source-plugin": "0.0.10",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^4.3.0",
+    "hygen": "^4.0.2",
+    "javascript-obfuscator": "^2.8.1",
+    "lint-staged": "^10.5.1",
+    "mini-css-extract-plugin": "^0.11.2",
+    "node-sass": "^4.14.1",
+    "prettier": "^2.1.2",
+    "pretty-quick": "^3.1.0",
+    "sass-loader": "^10.0.2",
+    "simple-git": "^2.21.0",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.38.0",
+    "webpack-bundle-analyzer": "^4.1.0",
+    "webpack-cli": "^3.3.6",
+    "webpack-merge": "^4.2.2",
+    "webpack-obfuscator": "^2.6.0",
+    "webpack-shell-plugin-next": "^1.2.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "postmsg-rpc": "^2.4.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}

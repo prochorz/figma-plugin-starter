@@ -1,0 +1,19 @@
+.app {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .app--logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .app--table {
+    width: 100%;
+    &table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  }
+}

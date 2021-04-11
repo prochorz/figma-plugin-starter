@@ -1,0 +1,4 @@
+export enum RPC {
+  SET_RANDOM_FILL = 'RPC_SET_RANDOM_FILL',
+  GET_NODE = 'RPC_GET_NODE',
+}

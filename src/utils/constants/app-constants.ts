@@ -1,0 +1,5 @@
+enum EVENT {
+  FIGMA_SELECT_SELECTION = 'FIGMA_SELECT_SELECTION',
+}
+
+export { EVENT };
