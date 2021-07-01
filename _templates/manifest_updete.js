@@ -1,3 +1,5 @@
+/* globals require */
+
 const fs = require('fs');
 const path = require('path');
 const exec = require('child_process').exec;
@@ -43,7 +45,9 @@ function updatePackage() {
 
 function updateManifest() {
   const manifestFile = editJsonFile(manifestPath);
-  const name = !isPublishToProd ? `${package.config.name} ${updateVersion}` : package.config.name;
+  const name = !isPublishToProd
+      ? `${package.config.name} ${updateVersion}`
+      : package.config.name;
   manifestFile.set('name', name);
   manifestFile.save();
   console.log('\x1b[32m', '✅ Update manifest.json');
@@ -51,7 +55,10 @@ function updateManifest() {
 
 function commitToRepository() {
   const commitMessage = !isPublishToProd ? updateVersion : `${updateVersion} prod`;
-  git.add([packagePath, manifestPath]).commit(commitMessage).push();
+  git.add([packagePath, manifestPath])
+     .commit(commitMessage)
+     .addAnnotatedTag(updateVersion)
+     .push(['origin', 'master', '--tags']);
   console.log('\x1b[32m', `✅ GIT: Update ${package.name} to ${updateVersion}`);
 }
 
