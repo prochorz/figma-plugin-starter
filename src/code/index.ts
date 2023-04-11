@@ -14,7 +14,7 @@ import { EVENT } from '../utils/constants/app-constants';
 
 figma.showUI(__html__, { width: 300, height: 554 });
 
-// событие из фигмы - выдиление любой ноды
+// Event from Figma - selecting any node.
 figma.on('selectionchange', () => {
   const selected: any = figma.currentPage.selection.length ? figma.currentPage.selection[0] : null;
 
